@@ -28,6 +28,6 @@ bool Banker::withdraw(Account & account, float money, string date)
 
 string Banker::requestAccountRecordsList(Account & account)const
 {
-	string result = "";
+	string result = account.getAllUpdates();
 	return result;
 }
