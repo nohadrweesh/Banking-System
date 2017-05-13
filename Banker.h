@@ -10,7 +10,11 @@ private:
 	~Banker();
 public:
 	static bool makeDeposit(Account & account, float money, string date);
-	static bool withdraw(Account & account, float money, string date);
-	string requestAccountRecordsList(Account & account) const;
+	static int withdraw(Account & account, float money, string date);
+	static int transfer(Account & firstAccount, Account & secondAccount, float money, string date);
+	
+	
+	static string requestAccountRecordsList(Account & account) ;
+	static bool deactivateAccount(Account & account,string _date);
 };
 
