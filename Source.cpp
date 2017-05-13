@@ -19,10 +19,10 @@ int main() {
 	dt = asctime(gmtm);
 	cout << "The UTC date and time is:" << dt << endl;*/
 	set<Account*>db;
-	Account nohaAccount("noha mahmoud", 200, "Sat Jan  8 20:07 : 41 2011");
-	Account ayaAccount("aya mahmoud", 400, "Sat Jan  8 20:07 : 41 2015");
-	Account islamAccount("islam mahmoud", 500, "Sat Jan  8 20:07 : 41 2012");
-	Account emanAccount("eman mahmoud",1000, "Sat Jan  8 20:07 : 41 2013");
+	Account nohaAccount = Banker::createAccount("noha mahmoud", 200, "Sat Jan  8 20:07 : 41 2011");
+	Account ayaAccount = Banker::createAccount("aya mahmoud", 400, "Sat Jan  8 20:07 : 41 2015");
+	Account islamAccount = Banker::createAccount("islam mahmoud", 500, "Sat Jan  8 20:07 : 41 2012");
+	Account emanAccount = Banker::createAccount("eman mahmoud", 1000, "Sat Jan  8 20:07 : 41 2013");
 	db.insert(&nohaAccount); db.insert(&ayaAccount); db.insert(&islamAccount);
 	db.insert(&emanAccount);
 	Banker::makeDeposit(nohaAccount, 50, "Sat May  8 20:07 : 41 2011");

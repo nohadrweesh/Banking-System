@@ -8,6 +8,7 @@ class Update;
 class Account
 {
 	static int numOfIds;
+	static float sumOfMoney;
 	string name;
 	int id;
 	
@@ -29,5 +30,6 @@ public:
 	int getAccountId() const;
 	bool getDeactivatedFlag();
 	void deactivateAccount(string _date);
+	static float getBankMoney();
 };
 bool operator <(Account a, Account b);

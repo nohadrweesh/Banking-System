@@ -9,8 +9,10 @@ Banker::Banker()
 Banker::~Banker()
 {
 }
-
-
+Account & Banker::createAccount(string _name, float money, string date){
+	Account *newAcc=new Account(_name, money, date);
+	return * newAcc;
+}
 bool Banker::makeDeposit(Account & account, float money, string date)
 {
 	if (!account.getDeactivatedFlag()){
@@ -57,4 +59,10 @@ bool Banker::deactivateAccount(Account & account,string _date)
   else 
     account.deactivateAccount(_date);
      return true;
+}
+bool Banker:: requestLoan(float _money){
+	if (Account::getBankMoney() / 8.0 >= _money)
+		return true;//we'll see in our next meeting either to accept or refuse
+	else
+		return false;//refused
 }

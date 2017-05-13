@@ -1,5 +1,6 @@
 #include "Account.h"
 int Account::numOfIds = 100000;
+float Account ::sumOfMoney = 0.0;
 Account::Account(){ deactivated = false; }
 Account::Account(string _name, float _money, string _date) :name(_name), money(_money), date(_date)
 {
@@ -7,6 +8,7 @@ Account::Account(string _name, float _money, string _date) :name(_name), money(_
 	id = numOfIds++;
 	Update update('c', 0.0, money, date);
 	updates.push_back(update);
+	sumOfMoney += _money;
 }
 
 
@@ -18,7 +20,7 @@ void Account::addMoney(float _money,string date)
 	money += _money;
 	Update update('d', _money, money, date);
 	  updates.push_back(update);
-	  
+	  sumOfMoney += _money;
 	
 }
 bool Account::withdrawMoney(float _money, string date)
@@ -29,6 +31,7 @@ bool Account::withdrawMoney(float _money, string date)
 	money -= _money;
 	Update update('w', _money, money, date);
 	updates.push_back(update);
+	sumOfMoney -= _money;
 	return true;
 }
 bool Account::transferMoney(float _money, string date, Account & secondAccount){
@@ -83,4 +86,7 @@ bool Account::getDeactivatedFlag()
 
 bool operator <(Account a, Account b){
 	return a.getAccountId() < b.getAccountId();
+}
+ float Account:: getBankMoney(){
+	 return sumOfMoney;
 }
