@@ -77,13 +77,14 @@ int Account::getAccountId()const
 }
 
 
-bool Account::getDeactivatedFlag()
+bool Account::getDeactivatedFlag() const
 {
 	return deactivated;
 }
 
 
 
+float Account::getAccountMoney()const{ return money; }
 bool operator <(Account a, Account b){
 	return a.getAccountId() < b.getAccountId();
 }

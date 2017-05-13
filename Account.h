@@ -28,7 +28,8 @@ public:
 	string getAllUpdates();
 	string getName() const;
 	int getAccountId() const;
-	bool getDeactivatedFlag();
+	bool getDeactivatedFlag() const;
+	float getAccountMoney()const;
 	void deactivateAccount(string _date);
 	static float getBankMoney();
 };

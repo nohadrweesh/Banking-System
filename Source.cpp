@@ -25,14 +25,19 @@ int main() {
 	Account emanAccount = Banker::createAccount("eman mahmoud", 1000, "Sat Jan  8 20:07 : 41 2013");
 	db.insert(&nohaAccount); db.insert(&ayaAccount); db.insert(&islamAccount);
 	db.insert(&emanAccount);
+	cout << Banker::checkBalance(nohaAccount);
 	Banker::makeDeposit(nohaAccount, 50, "Sat May  8 20:07 : 41 2011");
 	Banker::makeDeposit(nohaAccount, 100, "Sat May  10 20:07 : 41 2012");
 	Banker::transfer(nohaAccount, ayaAccount, 100, "Sat May  10 20:07 : 41 2016");
 	Banker::withdraw(islamAccount, 150, "11-2-2011");
 	Banker::deactivateAccount(emanAccount, "11-2-2014");
 	Banker::transfer(nohaAccount, emanAccount, 50, "11-2-2015");
+	
+	
 
 	cout<<Banker::requestAccountRecordsList(nohaAccount);
+
+	cout << Banker::checkBalance(nohaAccount);
 	cout << Banker::requestAccountRecordsList(ayaAccount);
 	cout << Banker::requestAccountRecordsList(islamAccount); 
 		cout << Banker::requestAccountRecordsList(emanAccount);

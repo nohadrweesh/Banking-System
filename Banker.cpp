@@ -36,8 +36,10 @@ int Banker::withdraw(Account & account, float money, string date)
 
 string Banker::requestAccountRecordsList(Account & account)
 {
-	string result = account.getAllUpdates();
-	return result;
+	string result = "";
+	if (!account.getDeactivatedFlag())
+	 result = account.getAllUpdates();
+	return result;//result=""if deactivated
 }
 int Banker::transfer(Account & firstAccount, Account & secondAccount, float money, string date){
 	if (!firstAccount.getDeactivatedFlag())
@@ -65,4 +67,12 @@ bool Banker:: requestLoan(float _money){
 		return true;//we'll see in our next meeting either to accept or refuse
 	else
 		return false;//refused
+}
+string Banker::checkBalance(Account & account){
+	string result = "";
+	if (!account.getDeactivatedFlag()){
+		float money = account.getAccountMoney();
+		result = "You have " + std::to_string(money) + " L.E\n";
+	}
+	return result;//result=""if it's deactivated
 }
